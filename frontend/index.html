@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voice Assistant</title>
+  <script type="module">
+    import { connect } from 'https://cdn.skypack.dev/livekit-client';
+
+    const joinRoom = async () => {
+      const token = prompt("Paste your LiveKit token:");
+      const room = await connect("wss://your-subdomain.livekit.cloud", token, {
+        audio: true,
+        video: false,
+      });
+
+      console.log("Joined room:", room.name);
+    };
+
+    window.addEventListener("DOMContentLoaded", joinRoom);
+  </script>
+</head>
+<body>
+  <h1>🎙️ AI Voice Assistant</h1>
+</body>
+</html>
